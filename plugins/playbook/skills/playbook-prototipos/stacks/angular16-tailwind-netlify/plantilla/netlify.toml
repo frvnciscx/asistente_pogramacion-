@@ -1,0 +1,29 @@
+# Configuración de Netlify — Prototipo Angular 16 (Playbook de prototipos)
+# Un sitio por proyecto; cada módulo es una ruta del router de Angular.
+
+[build]
+  command = "npm run build"
+  # Angular 16 compila en dist/<nombre-del-proyecto>. /nuevo-prototipo reemplaza NOMBRE_PROYECTO.
+  publish = "dist/NOMBRE_PROYECTO"
+
+[build.environment]
+  # Angular 16 soporta Node ^16.14 o ^18.10. Usamos 18.
+  NODE_VERSION = "18"
+
+# El control de acceso vive en netlify/edge-functions/acceso.ts
+# y se enciende/apaga con la variable ACCESO_ACTIVO (ver /playbook:acceso).
+
+# SPA: cualquier ruta sirve index.html para que el router de Angular la resuelva.
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# Prototipos: que ningún buscador los indexe y que no se puedan incrustar en otros sitios.
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "no-referrer"

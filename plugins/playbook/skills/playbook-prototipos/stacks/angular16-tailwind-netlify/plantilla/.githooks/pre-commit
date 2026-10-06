@@ -1,0 +1,5 @@
+#!/bin/sh
+# Hook de git instalado por el Playbook de prototipos.
+# Revisa los archivos en staging antes de cada commit, también fuera de Claude Code
+# (VS Code, GitHub Desktop, terminal). Si encuentra secretos, cancela el commit.
+node scripts/escanear-secretos.mjs --staged

@@ -1,0 +1,9 @@
+{
+  "name": "playbook",
+  "version": "0.1.0",
+  "description": "Playbook de prototipos: saber pedir (brief), saber leer (capa de aprendizaje), seguridad (escáner de secretos, control de acceso) y deploy en Netlify.",
+  "author": {
+    "name": "Paco"
+  },
+  "keywords": ["prototipos", "angular", "tailwind", "netlify", "seguridad", "aprendizaje"]
+}

@@ -1,0 +1,17 @@
+{
+  "description": "Guardia de secretos del playbook: bloquea git commit/push con secretos o con intentos de saltar la revisión.",
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"${CLAUDE_PLUGIN_ROOT}/scripts/escanear-secretos.mjs\" --hook",
+            "timeout": 30
+          }
+        ]
+      }
+    ]
+  }
+}

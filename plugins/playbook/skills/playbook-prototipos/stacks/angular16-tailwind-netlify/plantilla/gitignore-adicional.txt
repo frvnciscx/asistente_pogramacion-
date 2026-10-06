@@ -1,0 +1,9 @@
+
+# --- Playbook de prototipos ---
+.env
+.env.*
+!.env.example
+.netlify/
+.playbook-sensibles.txt
+*.pem
+*.key
